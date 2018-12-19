@@ -24,6 +24,7 @@ export default class NavBar extends React.Component {
           </div>
        {/*navbar for tablet and desktop (med and up)*/}
         <div className="col l12  hide-on-small-only">
+          <div className="col l2 m2"><Link to="/"> <img src={logo}/> </Link></div>
         {this.props.user ?
                 <div>
                   <p>Welcome!</p>
@@ -32,10 +33,10 @@ export default class NavBar extends React.Component {
                   <div className="col l2 push-l7"><Link style={styles.link} to={"user/" + this.props.user.id + "/dashboard"}> Dashboard </Link></div>
                 </div>
                 :
-                <div className="row" style={{paddingTop: '10px'}}>
-                    <div className="col l1 m1" style={styles.paddingSide}><Link style={styles.link} to="/login"> Log In </Link></div>
-                    <div className="col l2 m2" style={styles.paddingSide}><div style={styles.button}><Link style={styles.link} to="/signup/users"> Sign Up </Link></div></div>
-                    <div className="col l3 m3" ><div style={styles.buttonBorder}><Link style={styles.link} to="/signup/vendors">Vendor Sign Up </Link></div></div>
+                <div style={{paddingTop: '10px'}}>
+                    <div className="col l1 m1 push-l4 push-m2" style={styles.paddingSide}><Link style={styles.link} to="/login"> Log In </Link></div>
+                    <div className="col l2 m2 push-l4 push-m3" style={styles.paddingSide}><div style={styles.button}><Link style={styles.link} to="/signup/users"> Sign Up </Link></div></div>
+                    <div className="col l3 m3 push-l4 push-m3" ><div style={styles.buttonBorder}><Link style={styles.link} to="/signup/vendors">Vendor Sign Up </Link></div></div>
                 </div>
         }
         </div>
