@@ -27,17 +27,30 @@ export default class NavBar extends React.Component {
           <div className="col s2">
             <Link style={styles.link} to="/"> <img src={logo}/> </Link>
           </div>
-          <div className="col s2 push-s7">
-            <Link style={styles.link} to="/login"> Log In </Link>
-          </div>
-          <div className="col s2 push-s6">
-            <div style={styles.button}>
-            <Link style={styles.link} to="/signup/users"> Sign Up </Link>
-            </div>
-          </div>
-          <div className="col s2 push-s5">
-                <Link style={styles.link} to="/signup/vendors"> Have a cart? Sign up as a vendor! </Link>
-          </div>
+
+        {this.props.user ?
+                <div> 
+                <p>Welcome!</p> 
+                <div className="col s2 push-s7">
+                    <Link style={styles.link} to="/signout"> Signout </Link>
+                </div>
+                </div>
+                : 
+                  <div>
+                  <div className="col s2 push-s7">
+                    <Link style={styles.link} to="/login"> Log In </Link>
+                  </div>
+                  <div className="col s2 push-s6">
+                    <div style={styles.button}>
+                       <Link style={styles.link} to="/signup/users"> Sign Up </Link>
+                    </div>
+                  </div>
+                  <div className="col s2 push-s5">
+                      <Link style={styles.link} to="/signup/vendors"> Have a cart? Sign up as a vendor! </Link>
+                   </div>
+                  </div>}
+          
+          
         </div>
       </div>
     </div>

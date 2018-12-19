@@ -9,6 +9,7 @@ export default class Profile extends Component {
 
 
   render() {
+    console.log(this.props.user);
     return (
       <div>
         <div className="row">
@@ -18,6 +19,6 @@ export default class Profile extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import {browserHistory} from 'react-router';
-import NavBar from '../Shared-Components/NavBar';
 import Sliders from './Sliders';
 import Howitworks from './howitworks';
-import Footer from '../Shared-Components/Footer';
+
 
 
 class LandingPage extends Component {
@@ -28,11 +27,17 @@ class LandingPage extends Component {
                 console.log('latitude', position.coords.latitude, 
                             'longitude', position.coords.longitude);
 
+                let lat = position.coords.latitude;
+                let lng = position.coords.longitude;
+
                 //Store lat and long in state
                 self.setState({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
+                    latitude: lat,
+                    longitude: lng
                 })
+
+                //update the current location in the main app.js file
+                self.props.getCurrentLocation(lat, lng)
 
                 //retrieve nearby carts
                     //retrieve 
@@ -55,11 +60,9 @@ class LandingPage extends Component {
             
         return (
             <div className="landing-page">
-              <NavBar/>
-                <div className="welcome">
+                <div className="welcome landing-page">
                   <Sliders />
                   <Howitworks/>
-                  <Footer/>
                 </div>
             </div>
 
