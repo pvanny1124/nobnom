@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Vendors from './vendor_component';
 //import mapwmarkers from '../../images/mapwmarkers.png';
 import Maps from './google_maps_component.js';
+import MapContainer from '../components/MapContainer.jsx';
 
 //-------TO DO'S FOR LATER
 //TODO: render search bar
@@ -79,11 +80,12 @@ export default class Home extends Component {
 
               </div>
               <div className="l6">
-                <Maps
-                food={vendor}
-                  lat= {5.92}
-                  lng= {6.88}
-                />
+                <div className="card" style={{height:'300px'}}>
+                  <div className="section"/>
+                  <MapContainer coords={this.props.coords} vendors={this.state.vendors}/>
+                  <div className="section"/>
+                </div>
+
               </div>
             </div>
           </div>

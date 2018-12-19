@@ -16,7 +16,8 @@ export class MapContainer extends Component {
             showingInfoWindow: false,  //Hides or the shows the infoWindow
             activeMarker: {},          //Shows the active marker upon click
             selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
-            vendors: null
+            vendors: null,
+            markers: false
           };
     }
 
@@ -38,7 +39,7 @@ export class MapContainer extends Component {
 
     componentWillMount(){
             //get users' lat and long and look for carts nearby
-            
+
     }
 
 
@@ -51,23 +52,30 @@ export class MapContainer extends Component {
         apiKey: 'AIzaSyCPn65Xil3ZhzaciaiQix8p2HAx_RvUTZw', // for Mapquest, OpenCage, Google Premier
         formatter: null         // 'gpx', 'string', ...
       };
-    
-      let { vendors } = this.props;
-
       let markers = [];
-      for(let vendor of vendors.vendors){
-              markers.push(
-                           <Marker onClick={this.onMarkerClick}
-                                   name={vendor.vendorName}  
-                                   position={{lat: vendor.latitude, lng: vendor.longitude }}/>
-              )
-            console.log(vendor);
-      }
+      //
+      // let { vendors } = this.props;
+      //
+      // if (vendors === 'undefined' || vendors.vendors === 'undefined') {
+      //   this.setState({markers: false})
+      // } else {
+      //
+      //   for(let vendor of vendors.vendors){
+      //           markers.push(
+      //                        <Marker onClick={this.onMarkerClick}
+      //                                name={vendor.vendorName}
+      //                                position={{lat: vendor.latitude, lng: vendor.longitude }}/>
+      //           )
+      //         console.log(vendor);
+      //   }
+      // }
+
 
       console.log("%cVENDORS", "color: green");
-      console.log(markers);
+      //console.log(markers);
 
     return (
+      
         <Map google={this.props.google}
         zoom={14}
         style={mapStyles}
@@ -77,9 +85,9 @@ export class MapContainer extends Component {
           onClick={this.onMarkerClick}
           name={'You are here'}
         />
+      {this.state.markers ? {markers} : <div/> }
 
-        {markers}
-        
+
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
@@ -90,6 +98,7 @@ export class MapContainer extends Component {
           </div>
         </InfoWindow>
       </Map>
+
     );
   }
 }

@@ -142,12 +142,15 @@ class App extends Component {
               <Route path="/signup/vendors" render={() =>  <SignupAsVendor getUser={(user) => this.getUserData(user)}/> } />
               <Route path="/login" render={() => <Login getUser={(user) => this.getUserData(user)} />} />
               <Route path="/signout" render={() => <Signout resetUser={() => this.resetUser()} />} />
-              <Route path="/user/:id/dashboard" render={() => <Dashboard user={this.state.user} coords={coords} /> } />
+              <Route path="/profile" render={() => <Profile getUser={(user) => this.getUserData(user)} />} />
+
+              <Route path="/user/:id/dashboard" render={(props) => <Dashboard key={props.location.key} {...props} user={this.state.user} coords={coords} /> } />
               <Route path="/dashboard" render={() => <Dashboard user={this.state.user} coords={coords} /> } />
               <Route path="/vendor/:id/dashboard" render={() => <Dashboard user={this.state.user}/> } />
               <Route path="/vendor/:id/menu" render={() => <Menu getUser={(user) => this.getUserData(user)} />} />
               <Route path="/menu" render={() => <Menu getUser={(user) => this.getUserData(user)} />} />
-              <Route path="/profile" render={() => <Profile getUser={(user) => this.getUserData(user)} />} />
+              <Route path="/user/:id/profile" render={() => <Profile getUser={(user) => this.getUserData(user)} />} />
+
             <Footer/>
           </div>
         </BrowserRouter>

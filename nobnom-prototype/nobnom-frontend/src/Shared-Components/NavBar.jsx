@@ -27,10 +27,11 @@ export default class NavBar extends React.Component {
           <div className="col l2 m2"><Link to="/"> <img src={logo}/> </Link></div>
         {this.props.user ?
                 <div>
-                  <p>Welcome!</p>
-                  <div className="col l2 push-l7"><Link style={styles.link} to="/signout"> Signout </Link></div>
-                  <div className="col l2 push-l7"><Link style={styles.link} to="/"> Home </Link></div>
-                  <div className="col l2 push-l7"><Link style={styles.link} to={"user/" + this.props.user.id + "/dashboard"}> Dashboard </Link></div>
+                  <div className="col l2 push-l2"><Link style={styles.link} to="/"> Home </Link></div>
+                  <div className="col l2 push-l2"><Link style={styles.link} to={"user/"+this.props.user.id+"/profile"}> Profile </Link></div>
+                  {/*<div className="col l2 push-l2 "><Link style={styles.link} to={"vendor/" + this.props.user.id + "/dashboard"}> Dashboard </Link></div>*/}
+                  <div className="col l2 push-l2 "><Link style={styles.link} to={"user/"+this.props.user.id+"/dashboard"}> Dashboard </Link></div>
+                  <div className="col l2 push-l2 "><Link style={styles.link} to="/signout"> Signout </Link></div>
                 </div>
                 :
                 <div style={{paddingTop: '10px'}}>

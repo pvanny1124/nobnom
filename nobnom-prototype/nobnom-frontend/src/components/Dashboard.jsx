@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MapContainer from './MapContainer';
+import Home from '../Home/home.js';
 
 class Dashboard extends Component {
     constructor(props){
@@ -10,7 +11,9 @@ class Dashboard extends Component {
     }
 
     componentWillMount(){
-        fetch("/users/" + this.props.user.id + "/dashboard")
+      console.log(this.props);
+      let id = this.props.match.params.id;
+        fetch("/users/" + id + "/dashboard")
             .then(response => {
                 return response.json();
             })
@@ -24,7 +27,8 @@ class Dashboard extends Component {
 
         return (
             <div>
-                <MapContainer coords={this.props.coords} vendors={this.state.vendors}/>
+                <Home coords={this.props.coords} vendors={this.state.vendors}/>
+                
             </div>
         );
     }
