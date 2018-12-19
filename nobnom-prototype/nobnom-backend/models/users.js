@@ -1,13 +1,15 @@
 const bcrypt = require('bcrypt-nodejs');
+const uuidv1 = require('uuid/v1');
 
 module.exports = (sequelize, DataTypes) => {
 
-    const User = sequelize.define('users', {
+    const User = sequelize.define('Users', {
         id: {
-          type: DataTypes.INTEGER,
-          primaryKey: true,
-          autoIncrement: true,
-          allowNull: false
+            type: DataTypes.UUIDV1,
+            primaryKey: true,
+            unique: true,
+            allowNull: false,
+            defaultValue: uuidv1()
         },
         firstName: {
             type: DataTypes.STRING,
@@ -52,8 +54,11 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.STRING,
           allowNull: false
         },
-        location: {
-            type: DataTypes.STRING
+        latitude: {
+            type: DataTypes.FLOAT
+        },
+        longitude: {
+            type: DataTypes.FLOAT
         },
         createdAt: {
             allowNull: false,

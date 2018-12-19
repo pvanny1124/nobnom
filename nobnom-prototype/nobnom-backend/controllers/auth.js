@@ -13,7 +13,7 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-const User = require("../models/users")(sequelize, Sequelize);
+const User = require("../models/users.js")(sequelize, Sequelize);
 const Vendor = require("../models/vendor.js")(sequelize, Sequelize);
 
 router.get('/error', (req, res) => {
@@ -92,6 +92,10 @@ router.get('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+router.get("/api/auth", passport.checkAuthentication, (req, res) => {
+  console.log(req.user)
+  res.json(req.user)
+})
 
 router.get('/profile',
   passport.redirectIfNotLoggedIn('/auth/error'),

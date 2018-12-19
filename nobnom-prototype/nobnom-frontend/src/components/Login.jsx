@@ -44,8 +44,8 @@ class Login extends Component {
             let guest = data.user;
 
             //Also note: we will be checking if the guest is a vendor by checking if the guest has a vendorName field attached to their data object.
-            
-            //Now, Check if the guest is a user... 
+
+            //Now, Check if the guest is a user...
             if(!guest.vendorName){
                 //  If they are...
                 //  Save vendor in App.js state
@@ -84,16 +84,17 @@ class Login extends Component {
             }
         })
         .catch(error => {
-
+            console.log(error)
+            console.log("error logging in")
             //If the guest is not a user or a vendor... They do not have an account.
             //Display "password entered does not match email" to throw away pesky hackers. :)
             this.setState({exists: true})
         })
     }
 
-    render() { 
-     
-        return ( 
+    render() {
+
+        return (
 
                 <form className="login_container" onSubmit={(event) => this.handleSubmit(event)}>
                     <div className="login_form">
@@ -116,9 +117,9 @@ class Login extends Component {
                         <Link className="not-user" to="/signup/vendors">Want to enroll as a Vendor? Create your business' account here!</Link>
                     </div>
                 </form>
-        
+
          );
     }
 }
- 
+
 export default withRouter(Login);

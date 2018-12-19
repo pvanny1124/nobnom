@@ -55,7 +55,7 @@ class SignupAsUser extends Component {
               'Content-Type': 'application/json'
             }),
             body: JSON.stringify({
-                firstName: this.state.firstName, 
+                firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 username: this.state.username,
                 email: this.state.email,
@@ -102,16 +102,18 @@ class SignupAsUser extends Component {
                         //Bring the user to their dashboard on the client
                         this.props.history.push(userRoute);
                     })
-                    
-              } 
+
+              }
           })
           .catch((err) => {
-              
+            console.log(err)
+
           })
     }
     render(){
         return (
-            
+          <div className="container" style={{paddingTop: '10px'}}>
+
             <form onSubmit={(event) => this.handleSubmit(event)} className="signup_container">
                 <div className="signup_form">
 
@@ -145,9 +147,10 @@ class SignupAsUser extends Component {
                 <Link className="not-user" to="/login">Already a user? Log in here.</Link>
                 </div>
             </form>
+          </div>
         );
     }
-    
+
 }
 
 export default withRouter(SignupAsUser);;

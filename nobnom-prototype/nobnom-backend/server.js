@@ -71,7 +71,6 @@ const PORT = process.env.PORT || 3000 ;
 //------------------------------Api Routes-----------------------------------//
 
 
-
 //Serve our app on the port we specify
 app.listen(PORT, process.env.IP, () => {
     console.log("Now serving port: " + PORT);
