@@ -86,6 +86,9 @@ router.get("/vendors/:id/menu", (req, res) => {
           })
           
     })
+    .catch(error => {
+      res.status(404).json({ message: "user is not a vendor" })
+    })
     
 
 });
@@ -159,3 +162,4 @@ router.get('/protected',
 
 
 module.exports = router;
+

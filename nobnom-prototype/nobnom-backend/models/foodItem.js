@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       menuId: {
         type: DataTypes.INTEGER,
         references: {
-
+          type: DataTypes.UUID,
+          references: {
+              model: 'Vendors',
+              key: 'menuId'
+            },
         }
       },
       price: {
