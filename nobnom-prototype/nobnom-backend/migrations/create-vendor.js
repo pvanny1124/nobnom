@@ -4,10 +4,10 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("Vendors", {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       menuId: {
         type: Sequelize.UUID,
@@ -57,9 +57,11 @@ module.exports = {
       password_hash: {
         type: Sequelize.STRING
       },
-      location: {
-        type: Sequelize.STRING,
-        allowNull: false
+      latitude: {
+        type: Sequelize.FLOAT
+      },
+      longitude: {
+          type: Sequelize.FLOAT
       },
       country: {
         type: Sequelize.STRING,

@@ -1,17 +1,24 @@
+const uuidv1 = require('uuid/v1');
+
 module.exports = (sequelize, DataTypes) => {
      
     const FoodItem = sequelize.define('FoodItems', {
 
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUIDV1,
         primaryKey: true,
+        allowNull: false,
         autoIncrement: true,
-        allowNull: false
+        defaultValue: uuidv1()
       },
       menuId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         references: {
-
+          type: DataTypes.UUID,
+          references: {
+              model: 'Vendors',
+              key: 'menuId'
+            },
         }
       },
       price: {

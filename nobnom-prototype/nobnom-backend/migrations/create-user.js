@@ -3,10 +3,11 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Users', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
+        unique: true,
+        allowNull: false,
+
       },
       firstName: {
           type: Sequelize.STRING,
@@ -51,8 +52,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      location: {
-          type: Sequelize.STRING
+      latitude: {
+        type: Sequelize.FLOAT
+      },
+      longitude: {
+          type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,
