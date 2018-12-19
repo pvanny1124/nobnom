@@ -85,6 +85,17 @@ passport.deserializeUser((id, done) => {
        });
 });
 
+passport.checkAuthentication = (req, res, next) => {
+  if(req.isAuthenticated()){
+    
+      //req.isAuthenticated() will return true if user is logged in
+      next();
+  } else{
+    console.log("HAHA YOU SUCK AT CODING")
+      res.redirect("/login");
+  }
+}
+
 passport.redirectIfLoggedIn = (route) =>
   (req, res, next) => (req.user ? res.redirect(route) : next());
 

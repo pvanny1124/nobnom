@@ -122,7 +122,7 @@ async function findItems(foundVendor, foundCategories){
 }
 
 router.get("/vendors/:id/dashboard", (req, res) => {
-    //TODO
+    //return all of the vendors' information
 })
 
 //Create a new menu item

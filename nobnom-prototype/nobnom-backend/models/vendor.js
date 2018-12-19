@@ -8,10 +8,11 @@ module.exports = (sequelize, DataTypes) => {
         // transform all passed model names (first parameter of define) into plural.
         // if you don't want that, set the following
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUIDV1,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
+        defaultValue: uuidv1()
       },
 
       menuId: {
