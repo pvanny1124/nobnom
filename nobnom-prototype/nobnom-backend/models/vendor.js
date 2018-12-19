@@ -66,9 +66,11 @@ module.exports = (sequelize, DataTypes) => {
       password_hash: {
         type: DataTypes.STRING
       },
-      location: {
-        type: DataTypes.STRING,
-        allowNull: false
+      latitude: {
+        type: DataTypes.FLOAT
+      },
+      longitude: {
+          type: DataTypes.FLOAT
       },
       country: {
         type: DataTypes.STRING,

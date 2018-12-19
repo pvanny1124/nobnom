@@ -16,9 +16,39 @@ if (config.use_env_variable) {
 }
 const Vendor = require("../models/vendor")(sequelize, Sequelize);
 const FoodItem = require("../models/fooditem")(sequelize, Sequelize);
+const User = require("../models/users.js")(sequelize, Sequelize);
 
 router.get("/users/:id/dashboard", (req, res) => {
     //TODO
+
+    User.findOne({
+      attributes: ["latitude", "longitude"],
+      where: {
+        id: req.params.id
+      },
+      raw: true
+    })
+    .then(user => {
+        //set range
+
+        let lowLat = user.latitude - 1;
+        let highLat = user.latitude + 1;
+        let lowLng = user.longitude - 1;
+        let highLng = user.longitude + 1;
+
+        Vendor.findAll({
+          where: { 
+              latitude: { $between: [lowLat, highLat] },
+              longitude: { $between: [lowLng, highLat] }
+          },
+          raw: true
+        })
+        .then(foundVendors => {
+          res.status(200).json({ vendors: foundVendors});
+        })
+    })
+    //get all vendors nearby
+    
 })
 
 router.get("/vendors/:id/menu", (req, res) => {
@@ -147,6 +177,13 @@ router.post("/vendors/:id/menu/newitems", (req, res) => {
     })
 })
 
+router.post("/users/location", (req, res) => {
+    User.update({ latitude: req.body.latitude, longitude: req.body.longitude }, 
+        { where: { id: req.body.id } })
+        .then(user => {
+              res.json({ message: "location changed successfully"})
+        });
+})
 
 
 router.get('/logout', (req, res) => {

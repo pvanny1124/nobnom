@@ -34,6 +34,12 @@ export default class NavBar extends React.Component {
                 <div className="col s2 push-s7">
                     <Link style={styles.link} to="/signout"> Signout </Link>
                 </div>
+                <div className="col s2 push-s7">
+                    <Link style={styles.link} to="/"> Home </Link>
+                </div>
+                <div className="col s2 push-s7">
+                    <Link style={styles.link} to={"user/" + this.props.user.id + "/dashboard"}> Dashboard </Link>
+                </div>
                 </div>
                 : 
                   <div>
