@@ -5,6 +5,9 @@ import SignupAsUser from './components/SignupAsUser'
 import SignupAsVendor from './components/SignupAsVendor'
 import Login from './components/Login'
 import Menu from './Menu/menu';
+import Profile from './Profile/profile';
+import Home from './Home/home';
+import NavBar from './Shared-Components/NavBar';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
@@ -43,8 +46,10 @@ class App extends Component {
 
     return (
       <div>
+
         <BrowserRouter>
           <div className="main_body_wrapper">
+            <NavBar/>
             <Route path="/" exact component={LandingPage}/>
             <Route path="/signup/users" render={() => <SignupAsUser getUser={(user) => this.getUserData(user)} />} />
             <Route path="/signup/vendors" render={() =>  <SignupAsVendor getUser={(user) => this.getUserData(user)}/> } />
@@ -53,6 +58,8 @@ class App extends Component {
             <Route path="/vendor/:id/dashboard" />
             <Route path="/vendor/:id/menu" render={() => <Menu getUser={(user) => this.getUserData(user)} />} />
             <Route path="/menu" render={() => <Menu getUser={(user) => this.getUserData(user)} />} />
+            <Route path="/profile" render={() => <Profile getUser={(user) => this.getUserData(user)} />} />
+            <Route path="/home" render={() => <Home getUser={(user) => this.getUserData(user)} />} />
 
           </div>
         </BrowserRouter>
