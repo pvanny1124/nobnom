@@ -1,0 +1,87 @@
+/* This is Yukkee being sloppy with the custom CSS!! Will refactor to sass soon
+TABLE OF CONTENTS
+1. Landing Page CSS
+2. Buttons
+---------------------------------------*/
+
+/* 0.General CSS
+---------------------------------------*/
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 400;
+  src: url('./fonts/Avenir/AvenirNextLTPro-Regular.woff') format("woff"),
+       url('./fonts/Avenir/AvenirNextLTPro-Regular.woff2')  format("woff2");
+}
+div{
+    font-family: 'Avenir';
+}
+body{
+  background-color: #F7F7F7;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../css/fonts/icon.woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+.md-icon{
+ font-family: 'Material Icons' !important;
+}
+.mat-icon{
+ font-family: 'Material Icons' !important;
+}
+
+/* 1.Landing Page Custom CSS
+---------------------------------------*/
+.landing-heading {
+  font-family: 'Acme', sans-serif;
+}
+
+.navbar {
+      z-index: 4000;
+      position: fixed;
+      height: 75px;
+      width: 100%;
+      background-color: #FA485E;
+      box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.4);
+}
+
+.background-image {
+  background-image: url('../images/cover image.png');
+}
+
+/* 2.
+---------------------------------------*/
+/*Buttons*/
+.button {
+  border-style: solid;
+  border-radius: 8px;
+  padding: 0 0 0 25%;
+}
+.button-navbar {
+  border-color: #FBDB58;
+  background-color: #FFCE02;
+}
+.button-menu {
+  padding: 0% 0 0 20%;
+  border-color: #FA485E;
+  background-color: none;
+  height: 40px;
+}
