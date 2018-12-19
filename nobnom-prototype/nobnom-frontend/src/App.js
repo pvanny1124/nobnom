@@ -148,6 +148,7 @@ class App extends Component {
               <Route path="/vendor/:id/dashboard" render={() => <Dashboard user={this.state.user}/> } />
               <Route path="/vendor/:id/menu" render={() => <Menu getUser={(user) => this.getUserData(user)} />} />
               <Route path="/menu" render={() => <Menu getUser={(user) => this.getUserData(user)} />} />
+              <Route path="/profile" render={() => <Profile getUser={(user) => this.getUserData(user)} />} />
             <Footer/>
           </div>
         </BrowserRouter>

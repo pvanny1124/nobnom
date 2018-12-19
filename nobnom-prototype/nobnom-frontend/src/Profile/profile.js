@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Thumbnail from './thumbnail';
 import SavedVendors from './savedVendors';
+import ImagesAndReviews from './imagesAndReviews';
 
 import '../css/general.css';
 import '../css/menu.css';
@@ -20,7 +21,7 @@ export default class Profile extends Component {
               <div className="col m4 l4" style={{paddingTop: '20px'}}><Thumbnail/></div>
               <div className="col m8 l8" style={{paddingTop: '20px'}}>
                 <SavedVendors/>
-                <SavedVendors/>
+                <ImagesAndReviews/>
               </div>
           </div>
         </div>

@@ -9,12 +9,11 @@ const Thumbnail = () => {
       <div className="card">
         <div className="container">
           <div className="section"/>
+          <div className="category-title">General Information</div>
           <img className="responsive-img circle" src="https://via.placeholder.com/150"/>
-          <div className="section"/>
           <div className="section"/>
           <div>Edit</div>
           <div>Tom Brady</div>
-          <div className="section"/>
           <div className="section"/>
           <div>TomBrady@test.com</div>
           <div>718-764-7162</div>
